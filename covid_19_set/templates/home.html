@@ -1,0 +1,106 @@
+{% load crispy_forms_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-19</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="content-section">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-4">Add Email</legend>
+                            {{ form|crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-outline-info" type="submit">Add</button>
+                        </div>
+                    </form>
+                </div>
+              </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+              <a>
+              <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                  <p class="card-category text-danger">Confirmed</p>
+                  <h3 class="card-title text-danger">{{confirmed}}
+                  </h3>
+                </div>
+              </div>
+              </a>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+              <a href="/student/">
+              <div class="card card-stats">
+                <div class="card-header card-header-success card-header-icon">
+                  
+                  <p class="card-category">Active</p>
+                  <h3 class="card-title">{{active}}</h3>
+                </div>
+              </div>
+              </a>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-danger card-header-icon">
+                  
+                  <p class="card-category text-success">Recovered</p>
+                  <h3 class="card-title text-success">{{recovered}}</h3>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6">
+              <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                  
+                  <p class="card-category">Deaths</p>
+                  <h3 class="card-title">{{deaths}}</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <div class="card-footer">
+          </div>
+        <div class="row">
+            <div class="container">
+                <div class="content-section">
+                  <div class="card">
+                    <div class="card-header">
+                      <h4 class="card-title text-primary">All Suscriber</h4>
+                      <p class="card-category">And details about The Suscriber</p>
+                    </div>
+                    <div class="card-body table-responsive">
+                      <table class="table table-hover">
+                        <thead class="text-dark"><strong>
+                          <tr><th>#</th>
+                          <th>Name</th>
+                          <th>Email</th>
+                        </tr></strong></thead>
+                        <tbody>
+                          {% for i in di %}
+                          <tr>
+                            <td>{{i.id}}</td>
+                            <td>{{i.name}}</td>
+                            <td>{{i.email}}</td>
+                          </tr>
+                          {% endfor %}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+</body>
+</html>
