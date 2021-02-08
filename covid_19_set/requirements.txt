@@ -20,7 +20,7 @@ django-crispy-forms==1.9.0
 django-excel-base==1.0.3
 django-excel-response2==3.0.1
 django-six==1.0.4
-httplib2==0.18.0
+httplib2==0.19.0
 idna==2.6
 Jinja2==2.11.1
 kazam==1.4.5
