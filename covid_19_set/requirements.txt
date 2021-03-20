@@ -22,7 +22,7 @@ django-excel-response2==3.0.1
 django-six==1.0.4
 httplib2==0.19.0
 idna==2.6
-Jinja2==2.11.1
+Jinja2==2.11.3
 kazam==1.4.5
 keyring==10.6.0
 keyrings.alt==3.0
